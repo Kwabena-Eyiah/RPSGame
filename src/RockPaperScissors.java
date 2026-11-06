@@ -7,8 +7,7 @@ import java.util.Scanner;
  */
 public class RockPaperScissors {
 
-    public static void playGame() {
-        Scanner scanner = new Scanner(System.in);
+    public static void playGame(Scanner scanner) {
         Random random = new Random();
 
         String[] choices = {"rock", "paper", "scissors"};
@@ -63,8 +62,6 @@ public class RockPaperScissors {
         } else {
             System.out.println("It's a draw. Well played!");
         }
-
-        scanner.close();
     }
 
     /**

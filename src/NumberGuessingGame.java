@@ -2,9 +2,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class NumberGuessingGame {
-    public static void playGame(){
+    public static void playGame(Scanner scanner){
         Random random = new Random();
-        Scanner sc  = new Scanner(System.in);
 
         int guessLimit = 3;
         int guessCount = 0;
@@ -12,7 +11,14 @@ public class NumberGuessingGame {
 
         while(guessCount < guessLimit){
             System.out.println("\nGuess the magic number(0-10): ");
-            int userInput = sc.nextInt();
+            int userInput;
+            try {
+                userInput = scanner.nextInt();
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Invalid input! Please enter a number.\n");
+                scanner.nextLine();
+                continue;
+            }
             guessCount++;
 
             if (userInput == magicNumber){
